@@ -28,7 +28,6 @@ pipeline {
             agent {
                 docker {
                     image 'jre8:01'
-                    label 'appteste'
                     args  '-v /apps:/home -e APP=/home/my-app-1.0-SNAPSHOT.jar'
                 }
             }
