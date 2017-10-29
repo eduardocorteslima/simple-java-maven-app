@@ -28,7 +28,7 @@ pipeline {
         stage('Deliver') {
             agent any
             steps {
-                sh 'docker ps -a'
+                sh 'docker run -d -v /apps:/home -e APP=/home/my-app-1.0-SNAPSHOT.jar' 
             }
         }
     }
