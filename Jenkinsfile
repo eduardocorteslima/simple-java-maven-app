@@ -34,7 +34,7 @@ pipeline {
             }
             steps {
                 echo 'comecou'
-                sh 'java -version'
+                sh 'ls /home'
             }
         }
     }
