@@ -34,6 +34,7 @@ pipeline {
             }
             steps {
                 echo 'comecou'
+                sh 'java -version'
             }
         }
 
