@@ -28,7 +28,9 @@ pipeline {
         stage('Deliver') {
             agent any
             steps {
-                sh 'docker run -d -v /apps:/home -e APP=/home/my-app-1.0-SNAPSHOT.jar jre8:01' 
+                sh 'docker stop app
+                sh 'docker rm app
+                sh 'docker run -d -v /apps:/home --name app -e APP=/home/my-app-1.0-SNAPSHOT.jar jre8:01' 
             }
         }
     }
