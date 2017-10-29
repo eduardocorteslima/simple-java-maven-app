@@ -26,15 +26,9 @@ pipeline {
             }
         }
         stage('Deliver') {
-            agent {
-                docker {
-                    image 'jre8:01'
-                    args  '-v /apps:/home -e APP=/home/my-app-1.0-SNAPSHOT.jar'
-                }
-            }
+            agent any
             steps {
-                echo 'comecou'
-                sh 'ls /home'
+                sh 'docker ps -a'
             }
         }
     }
