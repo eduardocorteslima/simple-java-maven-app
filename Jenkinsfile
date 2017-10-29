@@ -1,17 +1,14 @@
 pipeline {
-    agent none   
-     
+    agent {
+        docker {
+            image 'maven:3-alpine' 
+            args '-v /root/.m2:/root/.m2' 
+        }
+    }
     stages {
-        stage('Build') {
-            agent {
-                    docker {
-                        image 'maven:3-alpine'
-                        args '-v /root/.m2:/root/.m2'
-                    }
-                }            
+        stage('Build') { 
             steps {
-                sh 'mvn -B -DskipTests clean package'
-                sh './jenkins/scripts/deliver.sh'
+                sh 'mvn -B -DskipTests clean package' 
             }
         }
 
@@ -25,12 +22,10 @@ pipeline {
                 }
             }
         }
-
+        
         stage('Deliver') {
-
             steps {
-                echo 'comecou'
-                sh 'java -version'
+                sh './jenkins/scripts/deliver.sh'
             }
         }
 
