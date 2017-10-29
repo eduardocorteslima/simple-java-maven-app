@@ -33,7 +33,7 @@ pipeline {
                 }
             }
             steps {
-                
+                echo 'comecou'
             }
         }
 
